@@ -1,0 +1,11 @@
+.projectTitle, .projectDesc{
+    text-align: center
+}
+
+.projectArea{
+    margin: 16px
+}
+
+body{
+    background-color: #bdbdbd
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Conan Chan</title>
+        <script  src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
+        <!-- Materialize icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Icons in ajax lib -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/portfolio.css">
+        <script>
+            $(document).ready(function(){
+                // Initialize parallax
+                $('.parallax').parallax();
+                // Navbar links will scroll webpage to the correct div
+                $('#navlink-aboutMe').click(function(){
+                    $('html, body').animate({
+                        scrollTop: $("#aboutMe").offset().top - 80
+                    }, 2000);
+                });
+                $('#navlink-skills').click(function(){
+                    $('html, body').animate({
+                        scrollTop: $("#skills").offset().top - 80
+                    }, 2000);
+                });
+                $('#navlink-projects').click(function(){
+                    $('html, body').animate({
+                        scrollTop: $("#projects").offset().top - 80
+                    }, 2000);
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="navbar-fixed">
+                <nav>
+                    <div class="nav-wrapper blue-grey lighten-1" style="padding-left: 20px">
+                        <a href="#" class="brand-logo">Conan Chan</a>
+                        <ul class="right hide-on-med-and-down">
+                            <li><a href="#about" id="navlink-aboutMe">About <i class="material-icons left">person</i></a></li>
+                            <li>
+                                <a href="#skills" id="navlink-skills">Skills<i class="material-icons left">settings</i></a>
+                            </li>
+                            <li><a href="#projects" id="navlink-projects">Portfolio <i class="material-icons left">folder</i></a></li>
+                            <li><a href="#contact" id="navlink-contact">Contact <i class="material-icons left">mail_outline</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        <div class="parallax-container" style="height: 300px">
+            <div class="parallax">
+                <img src="img/parallax.jpg" />
+            </div>
+        </div>
+        <div id="aboutMe" class="container row">
+            <h2 class="col s12">A bit about me...</h2>
+            <div class="col s12">
+                <p>Prior to becoming a <span class="deep-purple-text lighten-1">full-stack developer</span>, I worked as a chemist in a manufacturing company. Some days after work, I wanted to take a breather from chemistry. My friends and family suggested to try some programming since I grew up around computers, and it was always something I was working with. After taking some free online courses, I realized how much I enjoyed programming and problem solving. I decided to make the transition into web development.</p>
+                <p>I recently graduated from the Coding Dojo bootcamp in San Jose, where I had the opportunity to work with veterans and newcomers. Coding with both groups helped improve my own work because I was able to ask questions about parts where I had trouble with and help others in need.</p>
+            </div>
+        </div>
+        <div class="parallax-container" style="height: 250px">
+            <div class="parallax">
+                <img src="img/parallax1.jpg"/>
+            </div>
+        </div>
+        <div class="container row" id="skills">
+            <h2>Skills I learned</h2>
+            <table class="highlight">
+                <thead>
+                    <th>Languages</th>
+                    <th>Frameworks</th>
+                    <th>Libraries</th>
+                    <th>Databases/ORM</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Python</td>
+                        <td>Angular 4</td>
+                        <td>Express/Socket.io</td>
+                        <td>MongoDB</td>
+                    </tr>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>Flask</td>
+                        <td>Bootstrap</td>
+                        <td>MySQL</td>
+                    </tr>
+                    <tr>
+                        <td>Ruby</td>
+                        <td>Django</td>
+                        <td>jQuery</td>
+                        <td>SQLite</td>
+                    </tr>
+                    <tr>
+                        <td>HTML/CSS</td>
+                        <td>Rails</td>
+                        <td>Mongoose</td>
+                        <td>Active Record</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Node.js</td>
+                        <td>Materialize</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="parallax-container" style="height: 250px">
+            <div class="parallax">
+                THERE WILL BE A PARALLAX IMG HERE
+            </div>
+        </div>
+        <div class="container row projects">
+            <h2>Projects</h2>
+            <div id="projects">
+                <div class="col s12 projectArea" id="project1">
+                    <h5 class="projectTitle">Group Chat</h5>
+                    <video height="240" class="col s6" controls>
+                        <source src="vid/groupChat.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="projectDesc col s6">Users are able to prompted to create a username to access the chatroom. <br>
+                    Other users are able to see when new users enter the room and new users can see previous messages.</p>
+                </div><hr>
+                <div class="col s12 projectArea" id="project2">
+                    <h5 class="projectTitle">Star Registry</h5>
+                        <p class="projectDesc col s6">Users can create a star post and allow others to add comments to individual stars. The home page will sort <br> through all the stars and grab the five posts with the most comments. Original user can edit and delete their own posts.</p>
+                    <video height="240" controls class="col s6">
+                        <source src="vid/starRegistry.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div><hr>
+                <div class="col s12 projectArea" id="project3">
+                    <h5 class="projectTitle">Day Trip</h5>
+                    <video height="240" controls class="col s6">
+                        <source src="vid/dayTrip.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="projectDesc col s6">By utilizing the Google Places and Map API, a user is able to create a plan of what he or she wants to do. <br> It searches the location given for either food or activities and displays some of the results on a map for users to click on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="contactMe">
+            <h2>Contact</h2>
+            <i class="fa fa-linkedin-square" style="font-size:48px"></i>
+            <a href="http://www.github.com/chanconan"><i class="fa fa-github" style="font-size:48px"></i></a> 
+        </div>
+    </body>
+</html>
