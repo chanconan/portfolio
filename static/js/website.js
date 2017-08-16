@@ -22,5 +22,4 @@ $(document).ready(function(){
             scrollTop: $("#contactMe").offset().top - 80
         }, 2000);
     });
-
 });
