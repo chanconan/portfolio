@@ -1,3 +1,7 @@
+#{
+    margin: 0px auto;
+}
+
 .projectTitle, .projectDesc{
     text-align: center
 }
@@ -7,5 +11,6 @@
 }
 
 body{
-    background-color: #bdbdbd
+    background-color: #bdbdbd;
+    padding-bottom: 30px
 }

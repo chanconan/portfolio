@@ -10,39 +10,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
         <!-- Materialize icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!-- Icons in ajax lib -->
+        <!-- Icons in ajax lib for Github and LinkedIn-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="/css/portfolio.css">
-        <script>
-            $(document).ready(function(){
-                // Initialize parallax
-                $('.parallax').parallax();
-                // Navbar links will scroll webpage to the correct div
-                $('#navlink-aboutMe').click(function(){
-                    $('html, body').animate({
-                        scrollTop: $("#aboutMe").offset().top - 80
-                    }, 2000);
-                });
-                $('#navlink-skills').click(function(){
-                    $('html, body').animate({
-                        scrollTop: $("#skills").offset().top - 80
-                    }, 2000);
-                });
-                $('#navlink-projects').click(function(){
-                    $('html, body').animate({
-                        scrollTop: $("#projects").offset().top - 80
-                    }, 2000);
-                });
-
-            });
-        </script>
+        <script type="text/javascript" src="js/website.js"></script>
     </head>
     <body>
         <div class="main">
             <div class="navbar-fixed">
                 <nav>
                     <div class="nav-wrapper blue-grey lighten-1" style="padding-left: 20px">
-                        <a href="#" class="brand-logo">Conan Chan</a>
+                        <a href="/" class="brand-logo">Conan Chan</a>
                         <ul class="right hide-on-med-and-down">
                             <li><a href="#about" id="navlink-aboutMe">About <i class="material-icons left">person</i></a></li>
                             <li>
@@ -116,7 +94,7 @@
         </div>
         <div class="parallax-container" style="height: 250px">
             <div class="parallax">
-                THERE WILL BE A PARALLAX IMG HERE
+                <img src="img/parallax3.jpg"/>
             </div>
         </div>
         <div class="container row projects">
@@ -152,7 +130,8 @@
         <div class="container" id="contactMe">
             <h2>Contact</h2>
             <i class="fa fa-linkedin-square" style="font-size:48px"></i>
-            <a href="http://www.github.com/chanconan"><i class="fa fa-github" style="font-size:48px"></i></a> 
+            <a href="http://www.github.com/chanconan"><i class="fa fa-github" style="font-size:48px"></i></a>
+            <a href="mailto:address@example.com"><i class="fa fa-envelope-square" aria-hidden="true" style="font-size: 48px">mail</i></a>
         </div>
     </body>
 </html>
