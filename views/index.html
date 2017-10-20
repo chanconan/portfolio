@@ -12,13 +12,12 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- Icons in ajax lib for Github and LinkedIn-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="/css/portfolio.css">
-        <script type="text/javascript" src="js/website.js"></script>
+        <link rel="stylesheet" href="/static/css/portfolio.css">
     </head>
     <body>
         <!-- Navigation wrapper for home page (refresh) and other tools -->
         <div class="main">
-            <div class="navbar-fixed">
+            <div class="navbar-fixed" id="main">
                 <nav>
                     <div class="nav-wrapper blue-grey lighten-1" style="padding-left: 20px">
                         <a href="/" class="brand-logo">Conan Chan</a>
@@ -34,10 +33,12 @@
                 </nav>
             </div>
         </div>
+        <!-- TESTING REACT -->
+        <div id="here"></div>
         <!-- Parallax Image -->
         <div class="parallax-container" style="height: 300px">
             <div class="parallax">
-                <img src="img/parallax.jpg" />
+                <img src="/static/img/parallax.jpg" />
             </div>
         </div>
         <!-- Description for about me -->
@@ -133,12 +134,14 @@
                 </div>
             </div>
         </div>
+        <div id="here"></div>
         <!-- Container for contact information -->
         <div class="container" id="contactMe">
             <h2>Contact</h2>
-            <i class="fa fa-linkedin-square" style="font-size:48px"></i>
+            <a href="http://www.linkedin.com/chanconan"><i class="fa fa-linkedin-square" style="font-size:48px"></i></a>
             <a href="http://www.github.com/chanconan"><i class="fa fa-github" style="font-size:48px"></i></a>
             <a href="mailto:address@example.com"><i class="fa fa-envelope-square" aria-hidden="true" style="font-size: 48px">mail</i></a>
         </div>
+        <script src="./static/js/bundle.js"></script>
     </body>
 </html>

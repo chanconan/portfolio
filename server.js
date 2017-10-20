@@ -1,21 +1,58 @@
-// require express and path
-var express = require("express");
-var path = require("path");
-// create the express app
-var app = express();
-// static content
-app.use(express.static(path.join(__dirname, "./static")));
-// setting up ejs and our views folder
-app.set('views', path.join(__dirname, './views'));
-app.set('view engine', 'ejs');
+var http = require('http');
+var fs = require('fs');
+var path = require('path');
 
+var server = http.createServer(function (request, response) {
 
-// routes go here
-app.get('/', function(request, res){
-    res.render("index")
-})
+    var filePath = '.' + request.url;
+    if (filePath == './')
+        filePath = 'views/index.html';
 
-// tell the express app to listen on port 8000
-app.listen(8000, function(){
-    console.log("Listening on port 8000")
-})
+    var extname = path.extname(filePath);
+    var contentType = 'text/html';
+    switch (extname) {
+        case '.js':
+            contentType = 'text/javascript';
+            break;
+        case '.css':
+            contentType = 'text/css';
+            break;
+        case '.json':
+            contentType = 'application/json';
+            break;
+        case '.png':
+            contentType = 'image/png';
+            break;
+        case '.jpg':
+            contentType = 'image/jpg';
+            break;
+        case '.wav':
+            contentType = 'audio/wav';
+            break;
+    }
+
+    fs.readFile(filePath, function(error, content) {
+        if (error) {
+            if(error.code == 'ENOENT'){
+                fs.readFile('./404.html', function(error, content) {
+                    response.writeHead(200, { 'Content-Type': contentType });
+                    response.end(content, 'utf-8');
+                });
+            }
+            else {
+                response.writeHead(500);
+                response.end('Sorry, check with the site admin for error: '+error.code+' ..\n');
+                response.end();
+            }
+        }
+        else {
+            response.writeHead(200, { 'Content-Type': contentType });
+            response.end(content, 'utf-8');
+        }
+    });
+
+});
+// tell your server which port to run on
+server.listen(8080);
+// print to terminal window
+console.log("Running in localhost at port 8080");
