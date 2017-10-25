@@ -29,6 +29,9 @@ var server = http.createServer(function (request, response) {
         case '.wav':
             contentType = 'audio/wav';
             break;
+        case '.pdf':
+            contentType = 'application/pdf';
+            break;
     }
 
     fs.readFile(filePath, function(error, content) {

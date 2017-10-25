@@ -16,19 +16,10 @@
     </head>
     <body>
         <!-- Navigation wrapper for home page (refresh) and other tools -->
-        <div class="main">
-            <div class="navbar-fixed" id="main">
+        <div>
+            <div class="navbar-fixed">
                 <nav>
-                    <div class="nav-wrapper blue-grey lighten-1" style="padding-left: 20px">
-                        <a href="/" class="brand-logo">Conan Chan</a>
-                        <ul class="right hide-on-med-and-down">
-                            <li><a href="#about" id="navlink-aboutMe">About <i class="material-icons left">person</i></a></li>
-                            <li>
-                                <a href="#skills" id="navlink-skills">Skills<i class="material-icons left">settings</i></a>
-                            </li>
-                            <li><a href="#projects" id="navlink-projects">Portfolio <i class="material-icons left">folder</i></a></li>
-                            <li><a href="#contact" id="navlink-contact">Contact <i class="material-icons left">mail_outline</i></a></li>
-                        </ul>
+                    <div class="nav-wrapper blue-grey lighten-1" style="padding-left: 20px" id="main">
                     </div>
                 </nav>
             </div>
@@ -36,25 +27,10 @@
         <!-- TESTING REACT -->
         <div id="here"></div>
         <!-- Parallax Image -->
-        <div class="parallax-container" style="height: 300px">
-            <div class="parallax">
-                <img src="/static/img/parallax.jpg" />
-            </div>
-        </div>
+        <div id="parallax" class="parallax-container" style="height: 300px"></div>
         <!-- Description for about me -->
-        <div id="aboutMe" class="container row">
-            <h2 class="col s12">A bit about me...</h2>
-            <div class="col s12">
-                <p>Prior to becoming a <span class="deep-purple-text lighten-1">full-stack developer</span>, I worked as a chemist in a manufacturing company. Some days after work, I wanted to take a breather from chemistry. My friends and family suggested to try some programming since I grew up around computers, and it was always something I was working with. After taking some free online courses, I realized how much I enjoyed programming and problem solving. I decided to make the transition into web development.</p>
-                <p>I recently graduated from the Coding Dojo bootcamp in San Jose, where I had the opportunity to work with veterans and newcomers. Coding with both groups helped improve my own work because I was able to ask questions about parts where I had trouble with and help others in need.</p>
-                <a href="pdf/resume.pdf">Click Here For My Resume</a>
-            </div>
-        </div>
-        <div class="parallax-container" style="height: 250px">
-            <div class="parallax">
-                <img src="img/parallax1.jpg"/>
-            </div>
-        </div>
+        <div id="aboutMe"></div>
+        <div id="parallax1" class="parallax-container" style="height: 250px"></div>
         <div class="container row" id="skills">
             <h2>Skills I learned</h2>
             <table class="highlight">
@@ -98,11 +74,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="parallax-container" style="height: 250px">
-            <div class="parallax">
-                <img src="img/parallax3.jpg"/>
-            </div>
-        </div>
+        <div id="parallax2" class="parallax-container" style="height: 250px"></div>
         <!-- Lists of projects including corresponding videos and details -->
         <div class="container row projects">
             <h2>Projects</h2>
