@@ -1059,7 +1059,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     'a',
-                    { href: '/', 'class': 'brand-logo' },
+                    { href: '/', 'class': 'brand-logo', id: 'home' },
                     'Conan Chan'
                 ),
                 _react2.default.createElement(
@@ -1070,7 +1070,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                             'a',
-                            { href: '#about', id: 'navlink-aboutMe' },
+                            { href: 'about', id: 'navlink-aboutMe' },
                             'About ',
                             _react2.default.createElement(
                                 'i',
@@ -1084,7 +1084,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                             'a',
-                            { href: '#skills', id: 'navlink-skills' },
+                            { href: 'skills', id: 'navlink-skills' },
                             'Skills',
                             _react2.default.createElement(
                                 'i',
@@ -1098,7 +1098,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                             'a',
-                            { href: '#projects', id: 'navlink-projects' },
+                            { href: 'projects', id: 'navlink-projects' },
                             'Portfolio ',
                             _react2.default.createElement(
                                 'i',
@@ -1112,7 +1112,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                             'a',
-                            { href: '#contact', id: 'navlink-contact' },
+                            { href: 'contact', id: 'navlink-contact' },
                             'Contact ',
                             _react2.default.createElement(
                                 'i',
@@ -21295,25 +21295,33 @@ $(document).ready(function () {
     // Initialize parallax
     $('.parallax').parallax();
     // Navbar links will scroll webpage to the correct div
-    $('#navlink-aboutMe').click(function () {
-        $('html, body').animate({
-            scrollTop: $("#aboutMe").offset().top - 80
-        }, 2000);
+    $('#home').click(function (e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 1500);
     });
-    $('#navlink-skills').click(function () {
+    $('#navlink-aboutMe').click(function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#aboutMe").offset().top - 50
+        }, 1500);
+    });
+    $('#navlink-skills').click(function (e) {
+        e.preventDefault();
         $('html, body').animate({
             scrollTop: $("#skills").offset().top - 80
-        }, 2000);
+        }, 1500);
     });
-    $('#navlink-projects').click(function () {
+    $('#navlink-projects').click(function (e) {
+        e.preventDefault();
         $('html, body').animate({
-            scrollTop: $("#projects").offset().top - 80
-        }, 2000);
+            scrollTop: $("#projects").offset().top - 150
+        }, 1500);
     });
-    $('#navlink-contact').click(function () {
+    $('#navlink-contact').click(function (e) {
+        e.preventDefault();
         $('html, body').animate({
             scrollTop: $("#contactMe").offset().top - 80
-        }, 2000);
+        }, 1500);
     });
 });
 
