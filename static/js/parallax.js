@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 export class Parallax extends React.Component{
     render(){
         return (
-            <div class="parallax">
+            <div className="parallax">
                 <img src={"/static/img/" + this.props.img} />
             </div>
         )

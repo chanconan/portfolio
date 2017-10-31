@@ -565,6 +565,52 @@ module.exports = warning;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(20);
+} else {
+  module.exports = __webpack_require__(23);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -577,7 +623,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(2);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(8);
+  var ReactPropTypesSecret = __webpack_require__(9);
   var loggedTypeFailures = {};
 }
 
@@ -628,7 +674,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -645,52 +691,6 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-  ) {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(20);
-} else {
-  module.exports = __webpack_require__(23);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 10 */
@@ -1011,6 +1011,7 @@ __webpack_require__(17);
 __webpack_require__(33);
 __webpack_require__(34);
 __webpack_require__(35);
+__webpack_require__(36);
 
 /***/ }),
 /* 17 */
@@ -1030,7 +1031,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(9);
+var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -1059,12 +1060,12 @@ var Navbar = exports.Navbar = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                     'a',
-                    { href: '/', 'class': 'brand-logo', id: 'home' },
+                    { href: '/', className: 'brand-logo', id: 'home' },
                     'Conan Chan'
                 ),
                 _react2.default.createElement(
                     'ul',
-                    { 'class': 'right hide-on-med-and-down' },
+                    { className: 'right hide-on-med-and-down' },
                     _react2.default.createElement(
                         'li',
                         null,
@@ -1074,7 +1075,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                             'About ',
                             _react2.default.createElement(
                                 'i',
-                                { 'class': 'material-icons left' },
+                                { className: 'material-icons left' },
                                 'person'
                             )
                         )
@@ -1088,7 +1089,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                             'Skills',
                             _react2.default.createElement(
                                 'i',
-                                { 'class': 'material-icons left' },
+                                { className: 'material-icons left' },
                                 'settings'
                             )
                         )
@@ -1102,7 +1103,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                             'Portfolio ',
                             _react2.default.createElement(
                                 'i',
-                                { 'class': 'material-icons left' },
+                                { className: 'material-icons left' },
                                 'folder'
                             )
                         )
@@ -1116,7 +1117,7 @@ var Navbar = exports.Navbar = function (_React$Component) {
                             'Contact ',
                             _react2.default.createElement(
                                 'i',
-                                { 'class': 'material-icons left' },
+                                { className: 'material-icons left' },
                                 'mail_outline'
                             )
                         )
@@ -1187,7 +1188,7 @@ var require$$0 = __webpack_require__(6);
 var emptyObject = __webpack_require__(5);
 var invariant = __webpack_require__(2);
 var emptyFunction = __webpack_require__(1);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(8);
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -3219,7 +3220,7 @@ var camelizeStyleName = __webpack_require__(26);
 var performanceNow = __webpack_require__(28);
 var propTypes = __webpack_require__(30);
 var emptyObject = __webpack_require__(5);
-var checkPropTypes = __webpack_require__(7);
+var checkPropTypes = __webpack_require__(8);
 var shallowEqual = __webpack_require__(12);
 var containsNode = __webpack_require__(13);
 var focusNode = __webpack_require__(14);
@@ -20688,8 +20689,8 @@ var invariant = __webpack_require__(2);
 var warning = __webpack_require__(6);
 var assign = __webpack_require__(4);
 
-var ReactPropTypesSecret = __webpack_require__(8);
-var checkPropTypes = __webpack_require__(7);
+var ReactPropTypesSecret = __webpack_require__(9);
+var checkPropTypes = __webpack_require__(8);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -21235,7 +21236,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 var emptyFunction = __webpack_require__(1);
 var invariant = __webpack_require__(2);
-var ReactPropTypesSecret = __webpack_require__(8);
+var ReactPropTypesSecret = __webpack_require__(9);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -21343,7 +21344,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(9);
+var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -21369,22 +21370,22 @@ var About = exports.About = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { 'class': 'container row' },
+                { className: 'container row' },
                 _react2.default.createElement(
                     'h2',
-                    { 'class': 'col s12' },
+                    { className: 'col s12' },
                     'A bit about me...'
                 ),
                 _react2.default.createElement(
                     'div',
-                    { 'class': 'col s12' },
+                    { className: 'col s12' },
                     _react2.default.createElement(
                         'p',
                         null,
                         'Prior to becoming a ',
                         _react2.default.createElement(
                             'span',
-                            { 'class': 'deep-purple-text lighten-1' },
+                            { className: 'deep-purple-text lighten-1' },
                             'full-stack developer'
                         ),
                         ', I worked as a chemist in a manufacturing company. Some days after work, I wanted to take a breather from chemistry. My friends and family suggested to try some programming since I grew up around computers, and it was always something I was working with. After taking some free online courses, I realized how much I enjoyed programming and problem solving. I decided to make the transition into web development.'
@@ -21427,7 +21428,7 @@ var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(9);
+var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -21453,7 +21454,7 @@ var Parallax = exports.Parallax = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { 'class': 'parallax' },
+                { className: 'parallax' },
                 _react2.default.createElement('img', { src: "/static/img/" + this.props.img })
             );
         }
@@ -21465,6 +21466,139 @@ var Parallax = exports.Parallax = function (_React$Component) {
 _reactDom2.default.render(_react2.default.createElement(Parallax, { img: 'parallax.jpg' }), document.getElementById('parallax'));
 _reactDom2.default.render(_react2.default.createElement(Parallax, { img: 'parallax1.jpg' }), document.getElementById('parallax1'));
 _reactDom2.default.render(_react2.default.createElement(Parallax, { img: 'parallax3.jpg' }), document.getElementById('parallax2'));
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.Project = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(7);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Project = exports.Project = function (_React$Component) {
+    _inherits(Project, _React$Component);
+
+    function Project(props) {
+        _classCallCheck(this, Project);
+
+        var _this = _possibleConstructorReturn(this, (Project.__proto__ || Object.getPrototypeOf(Project)).call(this, props));
+
+        _this.state = {
+            text: _this.props.projectName,
+            hover: false
+        };
+
+        _this.showDescription = _this.showDescription.bind(_this);
+        _this.showProjectTitle = _this.showProjectTitle.bind(_this);
+        _this.projectWebsite = _this.projectWebsite.bind(_this);
+        return _this;
+    }
+
+    _createClass(Project, [{
+        key: 'showDescription',
+        value: function showDescription(e) {
+            this.setState({ hover: true });
+            switch (this.props.projectName) {
+                case "Group Chat":
+                    this.setState({ text: 'Users are able to prompted to create a username to access the chatroom. Other users are able to see when new users enter the room and new users can see previous messages.' });
+                    break;
+                case "Star Registry":
+                    this.setState({ text: 'Users can create a post and allow others to add comments to individual posts. The home page will sort through all the stars and grab the five posts with the most comments. Original user can edit and delete their own posts.' });
+                    break;
+                case "Day Trip":
+                    this.setState({ text: 'Some Description' });
+                    break;
+                default:
+                    this.setState({ text: 'There is no project of with this title' });
+            }
+        }
+    }, {
+        key: 'showProjectTitle',
+        value: function showProjectTitle(e) {
+            this.setState({ text: this.props.projectName, hover: false });
+        }
+
+        //DEPLOY THE PROJECTS AND REPLACE THE URLS
+
+    }, {
+        key: 'projectWebsite',
+        value: function projectWebsite(e) {
+            switch (this.props.projectName) {
+                case "Group Chat":
+                    window.location.href = "http://52.25.42.96";
+                    break;
+                case "Star Registry":
+                    window.location.href = "http://52.27.195.111";
+                    break;
+                case "Day Trip":
+                    window.location.href = "http://54.69.148.63";
+                    break;
+                default:
+                    alert('Page is not valid');
+                    break;
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var style = {
+                padding: 16,
+                width: 300,
+                height: 200,
+                display: 'inline-block',
+                float: 'left',
+                fontSize: 16
+            };
+            if (this.state.hover) {
+                style.fontSize = 12;
+            } else {
+                style.fontSize = 16;
+            }
+            return _react2.default.createElement(
+                'div',
+                { style: style, onMouseEnter: this.showDescription, onMouseLeave: this.showProjectTitle, onClick: this.projectWebsite },
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    ' ',
+                    this.state.text,
+                    ' '
+                )
+            );
+        }
+    }]);
+
+    return Project;
+}(_react2.default.Component);
+
+_reactDom2.default.render(_react2.default.createElement(
+    'div',
+    { style: { height: 200 } },
+    _react2.default.createElement(Project, { projectName: 'Group Chat' }),
+    _react2.default.createElement(Project, { projectName: 'Star Registry' })
+), document.getElementById('project1'));
 
 /***/ })
 /******/ ]);
