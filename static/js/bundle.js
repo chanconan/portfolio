@@ -21528,7 +21528,7 @@ var Project = exports.Project = function (_React$Component) {
                     this.setState({ text: 'Users can create a post and allow others to add comments to individual posts. The home page will sort through all the stars and grab the five posts with the most comments. Original user can edit and delete their own posts.' });
                     break;
                 case "Day Trip":
-                    this.setState({ text: 'Some Description' });
+                    this.setState({ text: 'By utilizing the Google Places and Map API, a user is able to create a plan of what he or she wants to do. It searches the location given for either food or activities and displays some of the results on a map for users to click on.' });
                     break;
                 default:
                     this.setState({ text: 'There is no project of with this title' });
@@ -21564,11 +21564,13 @@ var Project = exports.Project = function (_React$Component) {
         key: 'render',
         value: function render() {
             var style = {
-                padding: 16,
-                width: 300,
-                height: 200,
+                margin: 8,
+                width: '30%',
+                height: 150,
                 display: 'inline-block',
                 float: 'left',
+                textAlign: 'center',
+                borderStyle: 'solid',
                 fontSize: 16
             };
             if (this.state.hover) {
@@ -21595,9 +21597,15 @@ var Project = exports.Project = function (_React$Component) {
 
 _reactDom2.default.render(_react2.default.createElement(
     'div',
-    { style: { height: 200 } },
+    { style: { height: 150 } },
+    _react2.default.createElement(
+        'h1',
+        null,
+        'Projects'
+    ),
     _react2.default.createElement(Project, { projectName: 'Group Chat' }),
-    _react2.default.createElement(Project, { projectName: 'Star Registry' })
+    _react2.default.createElement(Project, { projectName: 'Star Registry' }),
+    _react2.default.createElement(Project, { projectName: 'Day Trip' })
 ), document.getElementById('project1'));
 
 /***/ })

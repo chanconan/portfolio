@@ -8,7 +8,7 @@
     "start": "node server.js",
     "babel": "babel",
     "webpack": "webpack",
-    "dev": "webpack-dev-server --progress --colors",
+    "dev": "webpack-dev-server --progress --colors"
   },
   "keywords": [],
   "author": "",
