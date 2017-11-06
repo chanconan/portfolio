@@ -21573,6 +21573,7 @@ var Project = exports.Project = function (_React$Component) {
                 borderStyle: 'solid',
                 fontSize: 16
             };
+            // Change text size in div box between project name and description
             if (this.state.hover) {
                 style.fontSize = 12;
             } else {
